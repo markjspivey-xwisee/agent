@@ -1,0 +1,7 @@
+{
+  "id": "aat:planner",
+  "name": "Planner",
+  "allowedActionTypes": ["EmitPlan"],
+  "forbiddenActionTypes": ["Actuate"],
+  "traceRequired": true
+}

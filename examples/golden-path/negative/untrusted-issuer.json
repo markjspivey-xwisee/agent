@@ -1,0 +1,6 @@
+{
+  "agent_did": "did:example:planner-123",
+  "verifiable_presentation": "vp:example:untrusted-issuer",
+  "resource_scope": "plan:delivery",
+  "issuer": "did:example:issuer-unknown"
+}

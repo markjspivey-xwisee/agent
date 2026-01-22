@@ -1,0 +1,9 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix cg: <https://example.org/cg#> .
+
+cg:AffordanceShape a sh:NodeShape ;
+  sh:targetClass cg:Affordance ;
+  sh:property [ sh:path cg:rel ; sh:minCount 1 ] ;
+  sh:property [ sh:path cg:actionType ; sh:minCount 1 ] ;
+  sh:property [ sh:path cg:target ; sh:minCount 1 ] ;
+  sh:property [ sh:path cg:inputShape ; sh:minCount 1 ] .

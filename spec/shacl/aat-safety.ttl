@@ -1,0 +1,10 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix cg: <https://example.org/cg#> .
+
+cg:PlannerAATShape a sh:NodeShape ;
+  sh:targetClass cg:Planner ;
+  sh:not [ sh:property [ sh:path cg:actionType ; sh:hasValue "Actuate" ] ] .
+
+cg:ObserverAATShape a sh:NodeShape ;
+  sh:targetClass cg:Observer ;
+  sh:not [ sh:property [ sh:path cg:actionType ; sh:minCount 1 ] ] .

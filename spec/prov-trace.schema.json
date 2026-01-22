@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/spec/prov-trace.schema.json",
+  "title": "PROV Trace Record",
+  "type": "object",
+  "required": [
+    "id",
+    "timestamp",
+    "context_id",
+    "agent_did",
+    "affordance_id",
+    "params",
+    "proofs",
+    "target"
+  ],
+  "properties": {
+    "id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "context_id": {"type": "string"},
+    "agent_did": {"type": "string"},
+    "affordance_id": {"type": "string"},
+    "params": {"type": "object"},
+    "proofs": {"type": "array", "items": {"type": "string"}},
+    "intervention": {"type": "string"},
+    "outcome": {"type": "object"},
+    "target": {"type": "object"}
+  },
+  "additionalProperties": false
+}
