@@ -1,0 +1,7 @@
+{
+  "id": "aat:executor",
+  "name": "Executor",
+  "allowedActionTypes": ["Actuate", "SendDidComm"],
+  "forbiddenActionTypes": ["Admin"],
+  "traceRequired": true
+}

@@ -1,0 +1,5 @@
+{
+  "agent_did": "did:example:planner-123",
+  "verifiable_presentation": null,
+  "resource_scope": "plan:delivery"
+}

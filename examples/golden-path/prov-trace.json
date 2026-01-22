@@ -1,0 +1,22 @@
+{
+  "id": "trace:emit-plan:2025-01-01T00:00:10Z",
+  "timestamp": "2025-01-01T00:00:10Z",
+  "context_id": "context:planner-123:2025-01-01T00:00:00Z",
+  "agent_did": "did:example:planner-123",
+  "affordance_id": "affordance:emit-plan",
+  "params": {
+    "planId": "plan-001",
+    "summary": "Draft route plan for delivery",
+    "steps": ["pickup", "route", "dropoff"]
+  },
+  "proofs": ["vp:example:planner-capability"],
+  "intervention": "do(EmitPlan, params)",
+  "outcome": {
+    "status": "submitted"
+  },
+  "target": {
+    "type": "HttpEndpoint",
+    "url": "https://broker.example.org/tool-router/emit-plan",
+    "method": "POST"
+  }
+}
