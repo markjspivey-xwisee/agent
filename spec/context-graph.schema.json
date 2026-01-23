@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/spec/context-graph.schema.json",
+  "title": "Context Graph Fragment",
+  "type": "object",
+  "required": ["context", "affordances"],
+  "properties": {
+    "context": {
+      "type": "object",
+      "required": ["id", "agent_did", "generated_at", "scope"],
+      "properties": {
+        "id": {"type": "string"},
+        "agent_did": {"type": "string"},
+        "generated_at": {"type": "string", "format": "date-time"},
+        "expires_at": {"type": "string", "format": "date-time"},
+        "scope": {"type": "string"},
+        "constraints": {"type": "object"},
+        "capabilities": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "affordances": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/affordance"}
+    },
+    "causalSemantics": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/causalSemantics"}
+    }
+  },
+  "$defs": {
+    "affordance": {
+      "type": "object",
+      "required": ["id", "rel", "actionType", "target", "inputShape"],
+      "properties": {
+        "id": {"type": "string"},
+        "rel": {"type": "string"},
+        "relVersion": {"type": "string"},
+        "actionType": {"type": "string"},
+        "target": {"$ref": "#/$defs/target"},
+        "inputShape": {"type": "string", "description": "URI to JSON Schema or SHACL shape."},
+        "policyRef": {"type": "string"},
+        "causalSemanticsRef": {"type": "string"},
+        "credentialRequirements": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/credentialRequirement"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "credentialRequirement": {
+      "type": "object",
+      "required": ["schema"],
+      "properties": {
+        "schema": {"type": "string"},
+        "issuerPolicy": {
+          "type": "object",
+          "properties": {
+            "allowlist": {"type": "array", "items": {"type": "string"}}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "target": {
+      "oneOf": [
+        {"$ref": "#/$defs/httpEndpoint"},
+        {"$ref": "#/$defs/didCommEndpoint"},
+        {"$ref": "#/$defs/oid4vciIssuer"}
+      ]
+    },
+    "httpEndpoint": {
+      "type": "object",
+      "required": ["type", "url", "method"],
+      "properties": {
+        "type": {"const": "HttpEndpoint"},
+        "url": {"type": "string", "format": "uri"},
+        "method": {"type": "string", "enum": ["POST", "GET"]}
+      },
+      "additionalProperties": false
+    },
+    "didCommEndpoint": {
+      "type": "object",
+      "required": ["type", "serviceDid", "serviceEndpoint"],
+      "properties": {
+        "type": {"const": "DidCommEndpoint"},
+        "serviceDid": {"type": "string"},
+        "serviceEndpoint": {"type": "string", "format": "uri"}
+      },
+      "additionalProperties": false
+    },
+    "oid4vciIssuer": {
+      "type": "object",
+      "required": ["type", "issuer"],
+      "properties": {
+        "type": {"const": "Oid4vciIssuer"},
+        "issuer": {"type": "string", "format": "uri"}
+      },
+      "additionalProperties": false
+    },
+    "causalSemantics": {
+      "type": "object",
+      "required": ["id", "intervention"],
+      "properties": {
+        "id": {"type": "string"},
+        "intervention": {"type": "string"},
+        "outcomes": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,7 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix cg: <https://example.org/cg#> .
+
+cg:EmitPlanParamsShape a sh:NodeShape ;
+  sh:property [ sh:path cg:planId ; sh:minCount 1 ] ;
+  sh:property [ sh:path cg:summary ; sh:minCount 1 ] ;
+  sh:property [ sh:path cg:steps ; sh:minCount 1 ] .

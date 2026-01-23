@@ -1,0 +1,11 @@
+{
+  "context_id": "context:planner-123:2025-01-01T00:00:00Z",
+  "affordance_id": "affordance:emit-plan",
+  "params": {
+    "planId": "plan-001",
+    "summary": "Draft route plan for delivery",
+    "steps": ["pickup", "route", "dropoff"]
+  },
+  "proofs": ["vc:planner-capability"],
+  "proof_issuers": ["did:example:issuer-unknown"]
+}

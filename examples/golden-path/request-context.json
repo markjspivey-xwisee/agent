@@ -1,0 +1,8 @@
+{
+  "agent_did": "did:example:planner-123",
+  "verifiable_presentation": "vp:example:planner-capability",
+  "resource_scope": "plan:delivery",
+  "evidence": {
+    "task": "draft plan for delivery route"
+  }
+}

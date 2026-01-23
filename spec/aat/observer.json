@@ -1,0 +1,7 @@
+{
+  "id": "aat:observer",
+  "name": "Observer",
+  "allowedActionTypes": [],
+  "forbiddenActionTypes": ["Actuate", "EmitPlan"],
+  "traceRequired": false
+}

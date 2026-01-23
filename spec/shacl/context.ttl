@@ -1,0 +1,8 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix cg: <https://example.org/cg#> .
+
+cg:ContextShape a sh:NodeShape ;
+  sh:targetClass cg:Context ;
+  sh:property [ sh:path cg:agentDid ; sh:minCount 1 ] ;
+  sh:property [ sh:path cg:generatedAt ; sh:minCount 1 ] ;
+  sh:property [ sh:path cg:scope ; sh:minCount 1 ] .

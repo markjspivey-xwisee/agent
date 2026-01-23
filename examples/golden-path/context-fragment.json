@@ -1,0 +1,44 @@
+{
+  "context": {
+    "id": "context:planner-123:2025-01-01T00:00:00Z",
+    "agent_did": "did:example:planner-123",
+    "generated_at": "2025-01-01T00:00:00Z",
+    "expires_at": "2099-01-01T01:00:00Z",
+    "scope": "plan:delivery",
+    "constraints": {
+      "maxDurationMinutes": 45
+    },
+    "capabilities": ["cap:plan:emit"]
+  },
+  "affordances": [
+    {
+      "id": "affordance:emit-plan",
+      "rel": "propose-plan",
+      "relVersion": "1.0",
+      "actionType": "EmitPlan",
+      "target": {
+        "type": "HttpEndpoint",
+        "url": "https://broker.example.org/tool-router/emit-plan",
+        "method": "POST"
+      },
+      "inputShape": "https://example.org/spec/emit-plan.params.schema.json",
+      "policyRef": "policy:planner-emit-plan",
+      "causalSemanticsRef": "causal:emit-plan",
+      "credentialRequirements": [
+        {
+          "schema": "vc:planner-capability",
+          "issuerPolicy": {
+            "allowlist": ["did:example:issuer-1"]
+          }
+        }
+      ]
+    }
+  ],
+  "causalSemantics": [
+    {
+      "id": "causal:emit-plan",
+      "intervention": "do(EmitPlan, params)",
+      "outcomes": ["plan_submitted", "plan_rejected"]
+    }
+  ]
+}

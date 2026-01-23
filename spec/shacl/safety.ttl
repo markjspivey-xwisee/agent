@@ -1,0 +1,9 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix cg: <https://example.org/cg#> .
+
+# Example safety shape: planner must not see actuation affordances.
+cg:PlannerNoActuateShape a sh:NodeShape ;
+  sh:targetClass cg:PlannerContext ;
+  sh:not [
+    sh:property [ sh:path cg:actionType ; sh:hasValue "Actuate" ]
+  ] .

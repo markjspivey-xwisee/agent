@@ -1,0 +1,5 @@
+{
+  "planId": "plan-001",
+  "summary": "Draft route plan for delivery",
+  "steps": ["pickup", "route", "dropoff"]
+}
